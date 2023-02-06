@@ -8,11 +8,11 @@ import sys
 source_dir = sys.argv[1]
 backup_file = sys.argv[2]
 
-current_time = time.strftime("%Y%m%d-%H%M", time.gmtime())
-extract_dir = "/tmp" + current_time
+current_time = time.strftime("%Y-%m-%d-%H%M", time.gmtime())
+extract_dir = "/tmp/" + current_time
 
 if len(sys.argv) != 3:
-    print("Error: incorrect number of parameters. Usage: script.py source_dir backup_file")
+    print("Error: incorrect number of parameters. Usage: verify.py source_dir backup_file")
     sys.exit(1)
 
 if not os.path.exists(backup_file):
