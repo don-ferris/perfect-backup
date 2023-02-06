@@ -28,7 +28,10 @@ if not os.path.exists(source_dir):
     sys.exit(1)
 
 tar = tarfile.open(backup_file)
-if len(tar.getnames()) != len(os.listdir(source_dir)):
+with tarfile.open(tar, "r:gz") as tarfilecount
+    members = tar.getmembers()
+    num_files = len(members) - 2
+if len(tar.getnames()) != num_files:
     print("Error: the number of files in the tar archive and the source directory do not match")
     sys.exit(1)
 tar.close()
